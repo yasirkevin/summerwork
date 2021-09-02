@@ -1,13 +1,13 @@
 import turtle
 
-bob = turtle.Turtle()
+arrow = turtle.Turtle()
 
 for i in range(11):
-  bob.forward(50)
-  bob.right(50)
-  bob.forward(50)
-  bob.right(130)
-  bob.forward(50)
-  bob.right(50)
-  bob.forward(50)
+  arrow.forward(50)
+  arrow.right(50)
+  arrow.forward(50)
+  arrow.right(130)
+  arrow.forward(50)
+  arrow.right(50)
+  arrow.forward(50)
 
