@@ -1,4 +1,4 @@
-
+import time
 import random
 
 RANGE = 49
@@ -6,7 +6,7 @@ GENERATIONS = 6
 
 numbers = []
 inputs = []
-numbersIncorrect = GENERATIONS
+score = 0
 
 def check_repeated(num):
   for i in range(1, len(numbers)):
@@ -14,10 +14,22 @@ def check_repeated(num):
       return True
   return False
 
+def probability(score):
+  totalProbability = 1
+
+  for i in range(score):
+    totalProbability = totalProbability * 1/RANGE
+  
+  for i in range(GENERATIONS - score):
+    totalProbability = totalProbability * (RANGE - 1)/RANGE
+  
+  return totalProbability
+
 for i in range(1, GENERATIONS + 1):
   generatedNumber = random.randint(1, 49)
   userInput = 0
   metConditions = False
+  
   while not(metConditions):
     userInput = ""
 
@@ -34,11 +46,15 @@ for i in range(1, GENERATIONS + 1):
   numbers.append(generatedNumber)
   inputs.append(userInput)
 
-print("\n The numbers were: \n")
+print("\nResults: \n")
 
 for i in range(0, GENERATIONS):
+  time.sleep(0.05)
+
   if numbers[i] == inputs[i]:
-    numbersIncorrect -= 1
+    score += 1
     print("[{}] Correct!".format(i + 1))
   else:
     print("[{}] Incorrect! The number was: {}".format(i + 1, numbers[i]))
+
+print("\n Combinaton Probability: {}% \n".format(round(probability(score) * 100, 2)))
