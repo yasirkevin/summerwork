@@ -26,7 +26,7 @@ def probability(score):
   return totalProbability
 
 for i in range(1, GENERATIONS + 1):
-  generatedNumber = random.randint(1, 49)
+  generatedNumber = random.randint(1, RANGE)
   userInput = 0
   metConditions = False
   
@@ -40,7 +40,7 @@ for i in range(1, GENERATIONS + 1):
       except ValueError:
           print("[!] Invalid number")
     else:
-      generatedNumber = random.randint(1, 49)
+      generatedNumber = random.randint(1, RANGE)
   
 
   numbers.append(generatedNumber)
