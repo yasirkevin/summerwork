@@ -8,6 +8,8 @@ data = [
 ]
 score = 0
 
+###### WORD DATA PARSER ######
+# Can be optimized
 with open('data_oppositewords.txt') as f:
     allLines = f.readlines()
 
@@ -62,6 +64,8 @@ with open('data_oppositewords.txt') as f:
           data[len(data) - 1][2] = words
 
     
+####
+
 
 for questionNumber in range(QUESTIONS):
   while True:
